@@ -79,9 +79,9 @@ public class PruebaWSConsumer {
             Gson gsonToken = new Gson();
             String jsonStringToken = gsonToken.toJson(reqToken);
 
-//            System.out.println("********************************");
-//            System.out.println(jsonString);
-//            System.out.println("********************************");
+            System.out.println("********************************");
+            System.out.println("jsonString");
+            System.out.println("********************************");
 
             //Enviamos nuestro json vía post al API Restful
             Response postToken = solicitudToken.post(Entity.json(jsonStringToken));
@@ -162,6 +162,8 @@ public class PruebaWSConsumer {
              solicitudReporte.header("Client_Id", "V63yUUOrxLtkGVFwNfq1ylXCstbGbnP3");
              solicitudReporte.header("Client_Secret", "RC2LmnVMelpuiHlG");
 
+             ////System.out.println(" ----------> "+solicitudReporte.get().getHeaderString("Gx_Usuario"));
+
              //Creamos y llenamos nuestro objeto ReportRequest con los datos que solicita el API
              ReportRequest reqReport = new ReportRequest();
 
@@ -174,9 +176,9 @@ public class PruebaWSConsumer {
              String jsonStringReport = gsonReport.toJson(reqReport);
 
 
-             //*/System.out.println("///********************************");
-             //*/System.out.println(jsonStringReport);
-             //*/System.out.println("///********************************");
+             System.out.println("///********************************");
+             System.out.println(jsonStringReport);
+             System.out.println("///********************************");
 
              //Enviamos nuestro json vía post al API Restful
 
@@ -186,9 +188,9 @@ public class PruebaWSConsumer {
              String responseJsonReport = postReport.readEntity(String.class);
              resReport = responseJsonReport;
 
-             //*/System.out.println("222********************************");
-             //*/System.out.println(responseJsonReport);
-             //*/System.out.println("222********************************");
+             System.out.println("222********************************");
+             System.out.println(responseJsonReport);
+             System.out.println("222********************************");
 
              //Imprimimos el status de la solicitud
             //*/System.out.println("Estatus: " + postReport.getStatus());

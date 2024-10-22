@@ -4,14 +4,15 @@ import com.yoandypv.restclientsamples.pruebas.PruebaWSConsumer;
 import com.yoandypv.restclientsamples.pruebas.PruebaWSReporte;
 import org.springframework.web.bind.annotation.*;
 
+
 @RestController
 @RequestMapping("WSCall")
 public class WSCallControler {
 
     @PostMapping(value = "Exec")
-    public String exec() throws JsonProcessingException {
+    public String exec(@RequestParam String tipoDocumento, @RequestParam String numeroDocumento) throws JsonProcessingException {
         PruebaWSConsumer pruebaWSConsumer = new PruebaWSConsumer();
-        String salida = pruebaWSConsumer.Ejecutar("D","08173966");
+        String salida = pruebaWSConsumer.Ejecutar(tipoDocumento,numeroDocumento);
 
         String reporteSentinel = "";
 

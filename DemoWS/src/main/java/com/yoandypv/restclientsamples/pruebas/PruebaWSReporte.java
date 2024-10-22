@@ -11,7 +11,7 @@ public class PruebaWSReporte {
         String reporteResumido ="";
 
         ObjectMapper objectMapper = new ObjectMapper();
-        JsonNode jsonNode = objectMapper.readTree(jsonReporte);
+        JsonNode jsonNode =  objectMapper.readTree(jsonReporte);
         ReporteCredito reporteCredito = new ReporteCredito();
 
         ///Carga Información Básica
@@ -57,18 +57,36 @@ public class PruebaWSReporte {
         reporteCredito.setDeudaProtestos(jsonNode.path("respuesta").path("ConRap").path("Resumen_ConRap").path("DeudaProtestos").toString());
         reporteCredito.setDeudaSBSMicrof(jsonNode.path("respuesta").path("ConRap").path("Resumen_ConRap").path("DeudaSBSMicrof").toString());
 
+        if (reporteCredito.getTDoc() == "D")
+        {
 
-        reporteResumido = reporteResumido + "Tip Doc: "  + reporteCredito.getTDoc() + "\n";
-        reporteResumido = reporteResumido + "Nom: " + reporteCredito.getNom() + "\n";
-        reporteResumido = reporteResumido + "Ape Pat: " +  reporteCredito.getApePat() + "\n";
-        reporteResumido = reporteResumido + "Ape Mat: " + reporteCredito.getApeMat() + "\n";
-        reporteResumido = reporteResumido + "24 Semáforos: " + reporteCredito.getSemaforos()+ "\n";
-        reporteResumido = reporteResumido + "DeudaTributaria: " + reporteCredito.getDeudaTributaria()+ "\n";
-        reporteResumido = reporteResumido + "DeudaLaboral" + reporteCredito.getDeudaLaboral()+ "\n";
-        reporteResumido = reporteResumido + "DeudaImpaga" + reporteCredito.getDeudaImpaga()+ "\n";
-        reporteResumido = reporteResumido + "DeudaProtestos" + reporteCredito.getDeudaProtestos()+ "\n";
-        reporteResumido = reporteResumido + "DeudaSBSMicrof" + reporteCredito.getDeudaSBSMicrof()+ "\n";
-        reporteResumido = reporteResumido + "Fecha de Proceso" + reporteCredito.getFechaProceso();
+            reporteResumido = reporteResumido + "Tip Doc: "  + reporteCredito.getTDoc() + "\n";
+            reporteResumido = reporteResumido + "Nom: " + reporteCredito.getNom() + "\n";
+            reporteResumido = reporteResumido + "Ape Pat: " +  reporteCredito.getApePat() + "\n";
+            reporteResumido = reporteResumido + "Ape Mat: " + reporteCredito.getApeMat() + "\n";
+            reporteResumido = reporteResumido + "24 Semáforos: " + reporteCredito.getSemaforos()+ "\n";
+            reporteResumido = reporteResumido + "DeudaTributaria: " + reporteCredito.getDeudaTributaria()+ "\n";
+            reporteResumido = reporteResumido + "DeudaLaboral" + reporteCredito.getDeudaLaboral()+ "\n";
+            reporteResumido = reporteResumido + "DeudaImpaga" + reporteCredito.getDeudaImpaga()+ "\n";
+            reporteResumido = reporteResumido + "DeudaProtestos" + reporteCredito.getDeudaProtestos()+ "\n";
+            reporteResumido = reporteResumido + "DeudaSBSMicrof" + reporteCredito.getDeudaSBSMicrof()+ "\n";
+            reporteResumido = reporteResumido + "Fecha de Proceso" + reporteCredito.getFechaProceso();
+
+        }
+        else
+
+        {
+            reporteResumido = reporteResumido + "Tip Doc: "  + reporteCredito.getTDoc() + "\n";
+            reporteResumido = reporteResumido + "Razón Social : " + reporteCredito.getRazSoc() + "\n";
+            reporteResumido = reporteResumido + "24 Semáforos: " + reporteCredito.getSemaforos()+ "\n";
+            reporteResumido = reporteResumido + "DeudaTributaria: " + reporteCredito.getDeudaTributaria()+ "\n";
+            reporteResumido = reporteResumido + "DeudaLaboral" + reporteCredito.getDeudaLaboral()+ "\n";
+            reporteResumido = reporteResumido + "DeudaImpaga" + reporteCredito.getDeudaImpaga()+ "\n";
+            reporteResumido = reporteResumido + "DeudaProtestos" + reporteCredito.getDeudaProtestos()+ "\n";
+            reporteResumido = reporteResumido + "DeudaSBSMicrof" + reporteCredito.getDeudaSBSMicrof()+ "\n";
+            reporteResumido = reporteResumido + "Fecha de Proceso" + reporteCredito.getFechaProceso();
+
+        }
 
         return reporteResumido;
         /*
